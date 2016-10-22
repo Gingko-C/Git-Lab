@@ -26,9 +26,19 @@
 	$ git push -u origin master//关联后，使用该命令第一次推送master分支的所有内容；
 	$ git push origin master//此后，每次本地提交后，只要有必要，就可以使用命令推送最新修改；
 	$ git clone git@github.com:michaelliao/gitskills.git//克隆远程库
+
+4.分支管理
 	$ git checkout -b dev//git checkout命令加上-b参数表示创建并切换，相当于以下两条命令
 	$ git branch dev//创建
 	$ git checkout dev//切换到该分支
 	$ git branch//查看分支 当前分支之前有个*
 	$ git merge dev//合并指定分支到当前分支
 	$ git branch -d <name>//删除分支
+	$ git log --graph --pretty=oneline --abbrev-commit//查看分支合并状况 **使用‘Q’退出查询模式
+	$ git merge --no-ff -m "merge with no-ff" dev//合并dev分支，请注意--no-ff参数，表示禁用Fast forward
+	$ git stash//把当前工作现场“储藏”起来 (临时修改->工作现场->本地仓库->远程仓库)
+	$ git stash apply//恢复，但是恢复后，stash内容并不删除
+	$ git stash drop//删除stash内容
+	$ git stash pop//恢复的同时把stash内容也删了(常用)
+	$ git stash apply stash@{0}//你可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash
+	
