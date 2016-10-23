@@ -41,4 +41,16 @@
 	$ git stash drop//删除stash内容
 	$ git stash pop//恢复的同时把stash内容也删了(常用)
 	$ git stash apply stash@{0}//你可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash
-	
+	$ git branch -D <name>//强制删除未合并分支
+
+5.tag（关于gpg 我的注册名是Gingko Chen）
+	命令git tag <name>用于新建一个标签，默认为HEAD，也可以指定一个commit id；
+	git tag -a <tagname> -m "blablabla..."可以指定标签信息；
+	git tag -s <tagname> -m "blablabla..."可以用PGP签名标签；
+	命令git tag可以查看所有标签。
+	git tag -v [tag name] >验证某个tag的GPG签名
+	git tag -u "Keven Liu" -s "My tag message" v1.0 这样，你的tag就用刚刚生成的GPG Key签名了。
+	命令git push origin <tagname>可以推送一个本地标签；
+	命令git push origin --tags可以推送全部未推送过的本地标签；
+	命令git tag -d <tagname>可以删除一个本地标签；
+	命令git push origin :refs/tags/<tagname>可以删除一个远程标签。
